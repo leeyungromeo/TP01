@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>liste des taches</title>
+</head>
+<body>
+<h1>LISTE DES TACHES</h1>
+{% if taille != 0%}
+    <ol>
+    {% for k,v in dico %}
+        <li><a href="/tache/{{k}}">{{k}}</a></li>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>La liste est vide.....</p>
+{% endif %}
+<br>
+<a href="/form_tache">Ajouter une tache</a>
+
+
+</body>
+</html>
