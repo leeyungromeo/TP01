@@ -14,8 +14,11 @@ def ajout_tache():
     if request.method == 'POST':
         titre = request.form['titre']
         desc = request.form['desc']
-        dico[titre] = desc
-        return render_template("list_tache.html", dico=dico.items(), taille=len(dico))
+        if titre and desc:
+            dico[titre] = desc
+            return render_template("list_tache.html", dico=dico.items(), taille=len(dico))
+        else:
+            return render_template('list_tache.html', taille=len(dico))
     else:
         return render_template("list_tache.html", dico=dico.items(), taille=len(dico))
 
